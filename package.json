@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@dcloudio/uni-ui": "^1.5.7",
+    "uni-read-pages": "^1.0.5",
+    "uview-ui": "^2.0.31"
+  },
+  "devDependencies": {
+    "path-browserify": "^1.0.1"
+  }
+}

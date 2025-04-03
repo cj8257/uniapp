@@ -1,0 +1,7 @@
+{
+  "name": "device_upload",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}
