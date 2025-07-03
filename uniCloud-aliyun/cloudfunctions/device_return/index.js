@@ -8,9 +8,11 @@
  */
 'use strict';
 
+
 const db = uniCloud.database();
 exports.main = async (event, context) => {
 	const { code, phone } = event;
+	console.log(code,phone)
 	const device = await db.collection("device").where({name: code}).get()
 	if(device.data[0].phone !== phone) {
 		return {

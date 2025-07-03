@@ -1,1 +1,1 @@
-{"version":3,"file":"assets.js","sources":["C:/static/empty-message.png"],"sourcesContent":["export default \"/static/empty-message.png\""],"names":[],"mappings":";AAAA,MAAe,aAAA;;"}
+{"version":3,"file":"assets.js","sources":["../../../../static/empty-message.png"],"sourcesContent":["export default \"/static/empty-message.png\""],"names":[],"mappings":";AAAA,MAAe,aAAA;;"}

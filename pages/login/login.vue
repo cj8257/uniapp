@@ -72,8 +72,36 @@ export default {
 				}
 				uni.setStorageSync('token', 'mock-token')
 				uni.setStorageSync('userInfo', userInfo)
-				uni.switchTab({
-					url: '/pages/my/my'
+				
+				// 显示用户信息收集说明
+				uni.showModal({
+					title: '用户信息收集说明',
+					content: '为了给您提供更好的服务，我们需要收集您的以下信息：\n\n1. 头像：用于在系统中显示您的个人头像\n2. 昵称：用于在系统中显示您的名称\n\n这些信息仅用于系统内部使用，我们承诺不会将您的信息用于其他用途或提供给第三方。\n\n您是否同意授权我们收集这些信息？',
+					confirmText: '同意',
+					cancelText: '拒绝',
+					success: async (res) => {
+						if (res.confirm) {
+							// 用户同意后获取用户信息 
+							try {
+								const userProfile = await uni.getUserProfile({
+									desc: '用于完善用户资料，提供个性化服务'
+								})
+								// 更新用户信息
+								const updatedUserInfo = {
+									...userInfo,
+									avatar: userProfile.userInfo.avatarUrl || userInfo.avatar,
+									nickname: userProfile.userInfo.nickName || userInfo.nickname
+								}
+								uni.setStorageSync('userInfo', updatedUserInfo)
+							} catch (err) {
+								console.log('用户拒绝授权', err)
+							}
+						}
+						// 无论用户是否同意，都继续跳转
+						uni.switchTab({
+							url: '/pages/my/my'
+						})
+					}
 				})
 				
 			} catch (error) {

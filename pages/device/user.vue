@@ -51,11 +51,11 @@
           </view>
           
           <view class="form-item">
-            <text class="label">手机号</text>
+            <text class="label">帐号</text>
             <input 
               class="input" 
               v-model="userForm.phone" 
-              placeholder="请输入手机号"
+              placeholder="请输入帐号"
               :class="{'error': errors.phone}"
             />
             <text class="error-text" v-if="errors.phone">{{errors.phone}}</text>
@@ -94,7 +94,7 @@
             <input 
               class="search-input" 
               v-model="searchKey" 
-              placeholder="搜索用户名或手机号"
+              placeholder="搜索用户名或账号"
               @input="handleSearch"
             />
           </view>
@@ -196,10 +196,10 @@ export default {
       }
       
       if (!this.userForm.phone) {
-        this.errors.phone = '请输入手机号'
+        this.errors.phone = '请输入账号'
         isValid = false
       } else if (!/^1[3-9]\d{9}$/.test(this.userForm.phone)) {
-        this.errors.phone = '请输入正确的手机号'
+        this.errors.phone = '请输入正确的账号'
         isValid = false
       }
       

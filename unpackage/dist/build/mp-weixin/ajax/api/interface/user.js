@@ -1,0 +1,1 @@
+"use strict";const a=require("../../http.js"),e={user_login:e=>a.ajax({name:"user_login",data:e}),user_add:e=>a.ajax({name:"user_add",data:e}),user_delete:e=>a.ajax({name:"user_delete",data:e}),user_update:e=>a.ajax({name:"user_update",data:e}),user_list:e=>a.ajax({name:"user_list",data:e})};exports.user=e;

@@ -65,7 +65,8 @@
 								})
 								uni.showToast({
 									title: msg,
-									icon: 'success'
+									icon: 'success',
+									duration: 2000
 								})
 								this.borrowedCount = mount
 								this.overdueCount = overCount

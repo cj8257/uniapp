@@ -33,13 +33,14 @@ const _sfc_main = {
               });
               common_vendor.index.showToast({
                 title: msg,
-                icon: "success"
+                icon: "success",
+                duration: 2e3
               });
               this.borrowedCount = mount;
               this.overdueCount = overCount;
             },
             fail: (e) => {
-              common_vendor.index.__f__("log", "at pages/index/index.vue:74", e.errMsg);
+              common_vendor.index.__f__("log", "at pages/index/index.vue:75", e.errMsg);
             }
           });
         }
@@ -77,7 +78,7 @@ const _sfc_main = {
       phone: userInfo.phone,
       username: userInfo.username
     });
-    common_vendor.index.__f__("log", "at pages/index/index.vue:117", count, overdueCount);
+    common_vendor.index.__f__("log", "at pages/index/index.vue:118", count, overdueCount);
     this.borrowedCount = count;
     this.overdueCount = overdueCount;
   }

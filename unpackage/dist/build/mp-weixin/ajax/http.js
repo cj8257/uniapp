@@ -1,0 +1,1 @@
+"use strict";const e=require("../common/vendor.js");exports.ajax=({name:n,data:i={}})=>{const o=i.isLoading;return i.isLoading&&delete i.isLoading,new Promise(((s,t)=>{!o&&e.index.showLoading({title:"加载中"}),e.nr.callFunction({name:n,data:i,success({result:n}){0===n.code?s(n):e.index.showToast({icon:"none",title:n.msg})},fail(e){t(e)},complete(n){!o&&e.index.hideLoading()}})}))};

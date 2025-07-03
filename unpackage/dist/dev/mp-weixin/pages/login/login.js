@@ -42,8 +42,31 @@ const _sfc_main = {
         };
         common_vendor.index.setStorageSync("token", "mock-token");
         common_vendor.index.setStorageSync("userInfo", userInfo);
-        common_vendor.index.switchTab({
-          url: "/pages/my/my"
+        common_vendor.index.showModal({
+          title: "用户信息收集说明",
+          content: "为了给您提供更好的服务，我们需要收集您的以下信息：\n\n1. 头像：用于在系统中显示您的个人头像\n2. 昵称：用于在系统中显示您的名称\n\n这些信息仅用于系统内部使用，我们承诺不会将您的信息用于其他用途或提供给第三方。\n\n您是否同意授权我们收集这些信息？",
+          confirmText: "同意",
+          cancelText: "拒绝",
+          success: async (res2) => {
+            if (res2.confirm) {
+              try {
+                const userProfile = await common_vendor.index.getUserProfile({
+                  desc: "用于完善用户资料，提供个性化服务"
+                });
+                const updatedUserInfo = {
+                  ...userInfo,
+                  avatar: userProfile.userInfo.avatarUrl || userInfo.avatar,
+                  nickname: userProfile.userInfo.nickName || userInfo.nickname
+                };
+                common_vendor.index.setStorageSync("userInfo", updatedUserInfo);
+              } catch (err) {
+                common_vendor.index.__f__("log", "at pages/login/login.vue:97", "用户拒绝授权", err);
+              }
+            }
+            common_vendor.index.switchTab({
+              url: "/pages/my/my"
+            });
+          }
         });
       } catch (error) {
         this.loginStatus = "error";

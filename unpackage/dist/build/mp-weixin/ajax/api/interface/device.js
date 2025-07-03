@@ -1,0 +1,1 @@
+"use strict";const e=require("../../http.js"),a={device_upload:a=>e.ajax({name:"device_upload",data:a}),device_all:a=>e.ajax({name:"device_all",data:a}),device_delete:a=>e.ajax({name:"device_delete",data:a}),device_borrow:a=>e.ajax({name:"device_borrow",data:a}),device_return:a=>e.ajax({name:"device_return",data:a})};exports.device=a;
